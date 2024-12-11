@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Inequality</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Sustainability Goals</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="workplace.html">Workplace Inequality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="education.html">Education Inequality</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="health.html">Health Inequality</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1 class="text-center">Health Inequality</h1>
+        <p>Health inequality affects millions globally, particularly women and marginalized groups. Access to healthcare, nutrition, and mental health support is essential for achieving equity.</p>
+
+        <!-- Image Grid -->
+        <div class="row g-3">
+            <div class="col-md-3"><img src="health1.jpg" alt="Healthcare access" class="img-fluid"></div>
+            <div class="col-md-3"><img src="health2.jpg" alt="Doctor consultation" class="img-fluid"></div>
+            <div class="col-md-3"><img src="health3.jpg" alt="Vaccination" class="img-fluid"></div>
+            <div class="col-md-3"><img src="health4.jpg" alt="Community health" class="img-fluid"></div>
+        </div>
+
+        <!-- Contact Form -->
+        <form id="healthContactForm" class="mt-4">
+            <div class="mb-3">
+                <label for="healthName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="healthName" required>
+            </div>
+            <div class="mb-3">
+                <label for="healthEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="healthEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="healthMessage" class="form-label">Message</label>
+                <textarea class="form-control" id="healthMessage" rows="3" required></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="validateHealthForm()">Submit</button>
+        </form>
+
+        <!-- DOM Manipulation Section -->
+        <button id="healthRandomFactBtn" class="btn btn-secondary mt-4">Show Random Fact</button>
+        <p id="healthRandomFact" class="mt-3"></p>
+    </div>
+
+    <script>
+        // JavaScript Validation for Form
+        function validateHealthForm() {
+            const name = document.getElementById('healthName').value;
+            const email = document.getElementById('healthEmail').value;
+            const message = document.getElementById('healthMessage').value;
+
+            if (name === '' || email === '' || message === '') {
+                alert('All fields are required!');
+                return false;
+            }
+            alert('Form submitted successfully!');
+        }
+
+        // Random Fact with Arrays
+        const healthFacts = [
+            'Globally, women live an average of 5 years longer than men.',
+            'Low-income groups face the highest health disparities.',
+            'Access to clean water and sanitation reduces health risks by 40%.',
+            'Vaccination programs save millions of lives annually.'
+        ];
+
+        document.getElementById('healthRandomFactBtn').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * healthFacts.length);
+            document.getElementById('healthRandomFact').innerText = healthFacts[randomIndex];
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

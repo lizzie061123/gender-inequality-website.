@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Inequality</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Sustainability Goals</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="workplace.html">Workplace Inequality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="education.html">Education Inequality</a></li>
+                    <li class="nav-item"><a class="nav-link" href="health.html">Health Inequality</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="environment.html">Environmental Inequality</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1 class="text-center">Environmental Inequality</h1>
+        <p>Environmental inequality refers to the unequal distribution of environmental benefits and burdens among different social groups, often leading to disparities in access to clean air, water, and natural resources.</p>
+
+        <!-- Image Grid -->
+        <div class="row g-3">
+            <div class="col-md-3"><img src="environment1.jpg" alt="Pollution impact" class="img-fluid"></div>
+            <div class="col-md-3"><img src="environment2.jpg" alt="Climate change effects" class="img-fluid"></div>
+            <div class="col-md-3"><img src="environment3.jpg" alt="Deforestation" class="img-fluid"></div>
+            <div class="col-md-3"><img src="environment4.jpg" alt="Renewable energy" class="img-fluid"></div>
+        </div>
+
+        <!-- Contact Form -->
+        <form id="environmentContactForm" class="mt-4">
+            <div class="mb-3">
+                <label for="environmentName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="environmentName" required>
+            </div>
+            <div class="mb-3">
+                <label for="environmentEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="environmentEmail" required>
+            </div>
+            <div class="mb-3">
+                <label for="environmentMessage" class="form-label">Message</label>
+                <textarea class="form-control" id="environmentMessage" rows="3" required></textarea>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="validateEnvironmentForm()">Submit</button>
+        </form>
+
+        <!-- DOM Manipulation Section -->
+        <button id="environmentRandomFactBtn" class="btn btn-secondary mt-4">Show Random Fact</button>
+        <p id="environmentRandomFact" class="mt-3"></p>
+    </div>
+
+    <script>
+        // JavaScript Validation for Form
+        function validateEnvironmentForm() {
+            const name = document.getElementById('environmentName').value;
+            const email = document.getElementById('environmentEmail').value;
+            const message = document.getElementById('environmentMessage').value;
+
+            if (name === '' || email === '' || message === '') {
+                alert('All fields are required!');
+                return false;
+            }
+            alert('Form submitted successfully!');
+        }
+
+        // Random Fact with Arrays
+        const environmentFacts = [
+            'Low-income communities are more vulnerable to environmental hazards such as air pollution.',
+            'Deforestation contributes to climate change and biodiversity loss.',
+            'Access to clean drinking water remains a major issue for millions globally.',
+            'Renewable energy sources like solar and wind can reduce dependence on fossil fuels.'
+        ];
+
+        document.getElementById('environmentRandomFactBtn').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * environmentFacts.length);
+            document.getElementById('environmentRandomFact').innerText = environmentFacts[randomIndex];
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
